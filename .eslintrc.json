@@ -4,5 +4,14 @@
   "plugins": ["import"],
   "parserOptions": {
     "project": "./tsconfig.eslint.json"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.test.ts","*.spec.ts"],
+      "rules": {
+        "dot-notation": "off",
+        "@typescript-eslint/dot-notation": "off"
+      }
+    }
+  ]
 }
