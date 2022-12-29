@@ -1,7 +1,6 @@
 import GiftBoxes from './GiftBoxes';
 import { getBoxSquare, getRibbonLength } from './GiftBoxes';
 import type { BoxDimensions } from './GiftBoxes';
-
 import resultInput from './input';
 
 describe('Convert string to box dimensions', () => {
