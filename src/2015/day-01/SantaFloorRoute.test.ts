@@ -21,10 +21,11 @@ describe('getTargetFloor', () => {
       const santaRoute = new SantaFloorRoute(input);
       expect(santaRoute.getTargetFloor()).toBe(result);
     });
-    it('result test', () => {
-      const santaRoute = new SantaFloorRoute(resultInput);
-      expect(santaRoute.getTargetFloor()).toBe(232);
-    });
+  });
+
+  it('result test', () => {
+    const santaRoute = new SantaFloorRoute(resultInput);
+    expect(santaRoute.getTargetFloor()).toBe(232);
   });
 });
 
@@ -40,10 +41,12 @@ describe('findStep', () => {
       expect(santaRoute.findStep()).toBe(result);
     });
   });
+
   it('null result', () => {
     const santaRoute = new SantaFloorRoute('(((((())');
     expect(santaRoute.findStep()).toBeNull();
   });
+
   it('result test', () => {
     const santaRoute = new SantaFloorRoute(resultInput);
     expect(santaRoute.findStep()).toBe(1783);

@@ -11,11 +11,13 @@ class SantaFloorRoute {
   constructor(input: string) {
     const stepChars = Object.keys(this.StepChar);
     this.steps = [...input]
-      .filter((char) => stepChars.includes(char)) as (keyof typeof this.StepChar)[];
+      .filter((char) => stepChars
+        .includes(char)) as (keyof typeof this.StepChar)[];
   }
 
   getTargetFloor() {
-    return this.steps.reduce((acc, item) => acc + this.StepChar[item], INITIAL_FLOOR);
+    return this.steps
+      .reduce((acc, item) => acc + this.StepChar[item], INITIAL_FLOOR);
   }
 
   findStep(floorNum: number = -1) {
