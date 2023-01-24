@@ -31,3 +31,30 @@ export const getNiceStrCount = (str: string, handler = isNiceStr) => {
   return strs.reduce((acc, cur) => (handler(cur) ? acc + 1 : acc), 0);
 };
 
+export const hasDoublePair = (str: string) => {
+  const letters = [...str];
+  for (let i = 1; i < letters.length; i += 1) {
+    const pair = `${letters[i - 1]}${letters[i]}`;
+    for (let j = i + 1; j + 1 < letters.length; j += 1) {
+      const checkedPair = `${letters[j]}${letters[j + 1]}`;
+      if (pair === checkedPair) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
+
+export const hasRepeatsLetter = (str: string) => {
+  const letters = [...str];
+  for (let i = 0; i + 2 < letters.length; i += 1) {
+    if (letters[i] === letters[i + 2]) {
+      return true;
+    }
+  }
+  return false;
+};
+
+export const isNiceStrVersionTwo = (str: string) => hasDoublePair(str)
+  && hasRepeatsLetter(str);
+

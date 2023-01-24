@@ -1,5 +1,7 @@
 import {
-  hasThreeVowels, hasDoubleLetter, containDisallowedStr, isNiceStr, getNiceStrCount,
+  hasThreeVowels, hasDoubleLetter, containDisallowedStr,
+  isNiceStr, getNiceStrCount, hasDoublePair,
+  hasRepeatsLetter, isNiceStrVersionTwo,
 } from './niceString';
 import resultInput from './input';
 
@@ -74,5 +76,57 @@ describe('isNiceStr', () => {
 describe('getNiceStrCount', () => {
   it('result test', () => {
     expect(getNiceStrCount(resultInput)).toBe(258);
+  });
+});
+
+describe('hasDoublePair', () => {
+  const testCases: [string, boolean][] = [
+    ['xyxy', true],
+    ['aabcdefgaa', true],
+    ['', false],
+    ['aaa', false],
+  ];
+
+  testCases.forEach(([input, result]) => {
+    it(`${input} => ${result}`, () => {
+      expect(hasDoublePair(input)).toBe(result);
+    });
+  });
+});
+
+describe('hasRepeatsLetter', () => {
+  const testCases: [string, boolean][] = [
+    ['xyx', true],
+    ['abcdefeghi', true],
+    ['', false],
+    ['aaz', false],
+  ];
+
+  testCases.forEach(([input, result]) => {
+    it(`${input} => ${result}`, () => {
+      expect(hasRepeatsLetter(input)).toBe(result);
+    });
+  });
+});
+
+describe('isNiceStr', () => {
+  const testCases: [string, boolean][] = [
+    ['qjhvhtzxzqqjkmpb', true],
+    ['xxyxx', true],
+    ['', false],
+    ['uurcxstgmygtbstg', false],
+    ['ieodomkazucvgmuy', false],
+  ];
+
+  testCases.forEach(([input, result]) => {
+    it(`${input} => ${result}`, () => {
+      expect(isNiceStrVersionTwo(input)).toBe(result);
+    });
+  });
+});
+
+describe('getNiceStrCountVersionTwo', () => {
+  it('result test', () => {
+    expect(getNiceStrCount(resultInput, isNiceStrVersionTwo)).toBe(53);
   });
 });
